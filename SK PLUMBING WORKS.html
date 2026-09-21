@@ -1,0 +1,277 @@
+I have successfully integrated a functional WhatsApp button into the code. This button is configured so that when a customer clicks it, it automatically opens WhatsApp and pre-fills a professional message: "Hello SK Plumbing Works, I would like to get a quote for plumbing services."
+I have also added a sleek, floating WhatsApp icon in the bottom-right corner of the page so that it stays visible even when users scroll.
+Here is your updated index.html code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Plumbing Works - Goregaon East, Mumbai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 60px; /* Space for floating button */
+        }
+        header {
+            background: linear-gradient(135deg, #0056b3, #0088ff);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .contact-list {
+            list-style: none;
+        }
+        .contact-list li {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            background: #eef5fc;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 5px solid #0056b3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .contact-links {
+            display: flex;
+            gap: 15px;
+        }
+        .contact-list a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .whatsapp-inline-btn {
+            background-color: #25D366;
+            color: white !important;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .service-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .service-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .service-item h3 {
+            color: #222;
+            margin-bottom: 5px;
+        }
+        .price-tag {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .about-list {
+            list-style: none;
+        }
+        .about-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .about-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .address-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+        /* Floating WhatsApp Button Style */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            font-size: 1rem;
+        }
+        .whatsapp-floating:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me." class="whatsapp-floating" target="_blank">
+        💬 Chat on WhatsApp
+    </a>
+
+    <!-- Header Section -->
+    <header>
+        <h1>SK Plumbing Works</h1>
+        <p>Your Trusted Plumbing Partner – Fast, Reliable, and Professional Service!</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Welcome / Home Section -->
+        <section id="home">
+            <h2>Welcome to SK Plumbing Works</h2>
+            <p>We handle all types of residential and commercial building plumbing jobs with complete responsibility, cleanliness, and precision. From minor leakages to major renovations, we provide reliable and lasting solutions for all your plumbing problems.</p>
+            <br>
+            <p><strong>📞 Call or WhatsApp Us for Immediate Assistance:</strong></p>
+            <ul class="contact-list" style="margin-top: 10px;">
+                <li>
+                    <span>👤 Raju Bhai</span>
+                    <div class="contact-links">
+                        <a href="tel:+919322590643">Call: 9322590643</a>
+                        <a href="https://wa.me." class="whatsapp-inline-btn" target="_blank">WhatsApp</a>
+                    </div>
+                </li>
+                <li>
+                    <span>👤 Amarnath</span>
+                    <div class="contact-links">
+                        <a href="tel:+919324240840">Call: 9324240840</a>
+                        <a href="https://wa.me." class="whatsapp-inline-btn" target="_blank">WhatsApp</a>
+                    </div>
+                </li>
+                <li>
+                    <span>👤 Ajeet</span>
+                    <div class="contact-links">
+                        <a href="tel:+917303314073">Call: 7303314073</a>
+                        <a href="https://wa.me." class="whatsapp-inline-btn" target="_blank">WhatsApp</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <p style="margin-bottom: 15px; font-weight: bold; color: #555;">We provide upfront, transparent pricing for all major projects based entirely on formal budget estimations:</p>
+            
+            <div class="service-item">
+                <h3>1. Drainage Line Work</h3>
+                <span class="price-tag">Based on Quotation</span>
+                <p>Complete execution of laying new pipeline networks and installing sturdy brick/concrete chambers.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>2. Bathroom Renovation (Plumbing Only)</h3>
+                <span class="price-tag">Based on Quotation</span>
+                <p>Complete replacement and upgrade of old pipeline networks and bathroom fittings. (Please note: This service is strictly restricted to plumbing pipelines and does not include civil masonry or tile-laying work).</p>
+            </div>
+
+            <div class="service-item">
+                <h3>3. All Building Bathroom Work</h3>
+                <span class="price-tag">Based on Quotation</span>
+                <p>Comprehensive layout setup, installations, and general repairs for bathrooms in both new construction projects and existing buildings.</p>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about">
+            <h2>Why Choose Us? (About Us)</h2>
+            <p style="margin-bottom: 15px;">At SK Plumbing Works, our mission is to deliver durable, top-tier plumbing services that fit perfectly within your specified budget constraints. Our core team consists of expert technicians capable of resolving complex plumbing issues seamlessly.</p>
+            
+            <ul class="about-list">
+                <li><strong>Experienced Team:</strong> Handled under the leadership of Raju Bhai and Amarnath, boasting extensive, proven hands-on field experience.</li>
+                <li><strong>Quotation-Based Pricing:</strong> We evaluate the scope and provide detailed pricing frameworks upfront to completely protect you from unexpected hidden fees.</li>
+                <li><strong>Quality Workmanship:</strong> We utilize robust materials and fittings to guarantee that you do not encounter recurring maintenance stress.</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us today for any minor repairs or heavy building infrastructure maintenance. We ensure quick response times and highly structured project quotations.</p>
+            
+            <ul class="contact-list" style="margin: 15px 0;">
+                <li>
+                    <span>Raju Bhai</span>
+                    <a href="tel:+919322590643">9322590643</a>
+                </li>
+                <li>
+                    <span>Amarnath</span>
+                    <a href="tel:+919324240840">9324240840</a>
+
+Ajeet
+7303314073
+
+📍 Our Registered Address:
+508, Koyana Vasahat, Panch Bawdi, Goregaon East, Mumbai - 400063
+
+© 2026 SK Plumbing Works. All Rights Reserved.
+
+
+*Note: Right now, the main floating WhatsApp button points to Raju Bhai's number. Inside the lists, users can choose to message anyone specifically.*
+
+<FollowUp>
+Would you like me to guide you on how to **host this code online for free** (so clients can visit your link on their mobiles), or do you want to add a **Google Maps link** for your address next?
+</FollowUp>
+
+
