@@ -1,277 +1,283 @@
-I have successfully integrated a functional WhatsApp button into the code. This button is configured so that when a customer clicks it, it automatically opens WhatsApp and pre-fills a professional message: "Hello SK Plumbing Works, I would like to get a quote for plumbing services."
-I have also added a sleek, floating WhatsApp icon in the bottom-right corner of the page so that it stays visible even when users scroll.
-Here is your updated index.html code:
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SK Plumbing Works - Goregaon East, Mumbai</title>
+    <title>SK Plumbing Works | Professional Plumbing Services in Mumbai</title>
+    <!-- Bootstrap 5 CSS Framework -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- FontAwesome for Professional Icons -->
+    <link href="https://cloudflare.com" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary-color: #0c4da2;
+            --accent-color: #ff5e14;
+            --dark-color: #0b132a;
+            --text-muted: #5a6b82;
+            --bg-light: #f4f7fa;
         }
         body {
-            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             color: #333;
-            line-height: 1.6;
-            padding-bottom: 60px; /* Space for floating button */
+            background-color: #ffffff;
         }
-        header {
-            background: linear-gradient(135deg, #0056b3, #0088ff);
+        /* Top Header Bar */
+        .top-bar {
+            background-color: var(--dark-color);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .top-bar a {
             color: white;
-            padding: 40px 20px;
+            text-decoration: none;
+        }
+        /* Navigation */
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary-color) !important;
+        }
+        .navbar-brand span {
+            color: var(--accent-color);
+        }
+        /* Premium Hero Section */
+        .hero {
+            background: linear-gradient(rgba(12,77,162,0.85), rgba(11,19,42,0.9)), url('https://unsplash.com') no-repeat center center/cover;
+            color: white;
+            padding: 140px 0 120px 0;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .btn-accent:hover {
+            background-color: #e04e0b;
+            color: white;
+        }
+        /* Utility Section Style */
+        .section-padding {
+            padding: 80px 0;
+        }
+        .section-title {
             text-align: center;
+            margin-bottom: 50px;
         }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .section-title h2 {
+            font-weight: 800;
+            font-size: 2.3rem;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 15px;
         }
-        header p {
-            font-size: 1.2rem;
-            font-style: italic;
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
+        /* Professional Premium Cards */
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            height: 100%;
         }
-        section {
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(12,77,162,0.08);
+            border-color: rgba(12,77,162,0.2);
+        }
+        .icon-box {
+            width: 75px;
+            height: 75px;
+            background: rgba(12,77,162,0.06);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 25px auto;
+            transition: 0.3s;
+        }
+        .service-card:hover .icon-box {
+            background: var(--primary-color);
+            color: white;
+        }
+        .quote-badge {
+            background-color: #e6f7ed;
+            color: #1f7842;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        /* Features Block */
+        .features-block {
+            background-color: var(--bg-light);
+        }
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .feature-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+        /* Testimonials */
+        .review-card {
             background: white;
             padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid #f0f4f8;
         }
-        h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+        .stars {
+            color: #ffb703;
+            margin-bottom: 10px;
         }
-        .contact-list {
-            list-style: none;
-        }
-        .contact-list li {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            background: #eef5fc;
-            padding: 12px;
-            border-radius: 5px;
-            border-left: 5px solid #0056b3;
+        /* Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+            text-decoration: none;
+            z-index: 9999;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             gap: 10px;
         }
-        .contact-links {
-            display: flex;
-            gap: 15px;
-        }
-        .contact-list a {
-            color: #0056b3;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .whatsapp-inline-btn {
-            background-color: #25D366;
-            color: white !important;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-        .service-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #ddd;
-        }
-        .service-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .service-item h3 {
-            color: #222;
-            margin-bottom: 5px;
-        }
-        .price-tag {
-            display: inline-block;
-            background: #28a745;
+        .whatsapp-float:hover {
+            background: #20ba5a;
             color: white;
-            padding: 3px 8px;
-            font-size: 0.85rem;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            font-weight: bold;
         }
-        .about-list {
-            list-style: none;
-        }
-        .about-list li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .about-list li::before {
-            content: "✓";
-            color: #28a745;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        .address-box {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-top: 15px;
-        }
+        /* Dark Corporate Footer */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-            font-size: 0.9rem;
+            background-color: var(--dark-color);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 0 20px 0;
+            font-size: 0.95rem;
         }
-        /* Floating WhatsApp Button Style */
-        .whatsapp-floating {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
+        footer h4 {
             color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+        footer a {
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 1000;
-            font-size: 1rem;
+            transition: 0.3s;
         }
-        .whatsapp-floating:hover {
-            background-color: #128C7E;
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me." class="whatsapp-floating" target="_blank">
-        💬 Chat on WhatsApp
+    <!-- Floating Actions -->
+    <a href="https://wa.me." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp fa-lg"></i> Live Chat
     </a>
 
-    <!-- Header Section -->
-    <header>
-        <h1>SK Plumbing Works</h1>
-        <p>Your Trusted Plumbing Partner – Fast, Reliable, and Professional Service!</p>
+    <!-- Top Info Ribbon -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <i class="fas fa-map-marker-alt text-danger me-2"></i> 508, Koyana Vasahat, Goregaon East, Mumbai
+            </div>
+            <div>
+                <i class="fas fa-clock text-warning me-2"></i> 24/7 Emergency Services Across Mumbai
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">SK <span>PLUMBING</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+                    <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="#about">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a href="tel:+919322590643" class="btn btn-outline-primary fw-bold px-3"><i class="fas fa-phone-alt"></i> Call Raju Bhai</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Professional Hero Banner -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 text-start">
+                    <span class="badge bg-danger mb-3 px-3 py-2 text-uppercase fw-bold">Premium Infrastructure Partner</span>
+                    <h1>Plumbing Service Is Our Main Motto</h1>
+                    <p class="my-4">We handle all variants of residential and commercial building plumbing jobs with complete engineering responsibility, high structural cleanliness, and mechanical precision.</p>
+                    <div class="d-flex gap-3 mt-4 flex-wrap">
+                        <a href="#contact" class="btn btn-accent btn-lg">Get Free Estimation</a>
+                        <a href="#services" class="btn btn-outline-light btn-lg">Our Operations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        
-        <!-- Welcome / Home Section -->
-        <section id="home">
-            <h2>Welcome to SK Plumbing Works</h2>
-            <p>We handle all types of residential and commercial building plumbing jobs with complete responsibility, cleanliness, and precision. From minor leakages to major renovations, we provide reliable and lasting solutions for all your plumbing problems.</p>
-            <br>
-            <p><strong>📞 Call or WhatsApp Us for Immediate Assistance:</strong></p>
-            <ul class="contact-list" style="margin-top: 10px;">
-                <li>
-                    <span>👤 Raju Bhai</span>
-                    <div class="contact-links">
-                        <a href="tel:+919322590643">Call: 9322590643</a>
-                        <a href="https://wa.me." class="whatsapp-inline-btn" target="_blank">WhatsApp</a>
-                    </div>
-                </li>
-                <li>
-                    <span>👤 Amarnath</span>
-                    <div class="contact-links">
-                        <a href="tel:+919324240840">Call: 9324240840</a>
-                        <a href="https://wa.me." class="whatsapp-inline-btn" target="_blank">WhatsApp</a>
-                    </div>
-                </li>
-                <li>
-                    <span>👤 Ajeet</span>
-                    <div class="contact-links">
-                        <a href="tel:+917303314073">Call: 7303314073</a>
-                        <a href="https://wa.me." class="whatsapp-inline-btn" target="_blank">WhatsApp</a>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services">
-            <h2>Our Services</h2>
-            <p style="margin-bottom: 15px; font-weight: bold; color: #555;">We provide upfront, transparent pricing for all major projects based entirely on formal budget estimations:</p>
-            
-            <div class="service-item">
-                <h3>1. Drainage Line Work</h3>
-                <span class="price-tag">Based on Quotation</span>
-                <p>Complete execution of laying new pipeline networks and installing sturdy brick/concrete chambers.</p>
+    <!-- Services Operations Grid -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>See Our Plumbing Services</h2>
+                <p class="text-muted mt-2">Comprehensive tailored industrial layout mappings and household modifications</p>
             </div>
-
-            <div class="service-item">
-                <h3>2. Bathroom Renovation (Plumbing Only)</h3>
-                <span class="price-tag">Based on Quotation</span>
-                <p>Complete replacement and upgrade of old pipeline networks and bathroom fittings. (Please note: This service is strictly restricted to plumbing pipelines and does not include civil masonry or tile-laying work).</p>
-            </div>
-
-            <div class="service-item">
-                <h3>3. All Building Bathroom Work</h3>
-                <span class="price-tag">Based on Quotation</span>
-                <p>Comprehensive layout setup, installations, and general repairs for bathrooms in both new construction projects and existing buildings.</p>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section id="about">
-            <h2>Why Choose Us? (About Us)</h2>
-            <p style="margin-bottom: 15px;">At SK Plumbing Works, our mission is to deliver durable, top-tier plumbing services that fit perfectly within your specified budget constraints. Our core team consists of expert technicians capable of resolving complex plumbing issues seamlessly.</p>
-            
-            <ul class="about-list">
-                <li><strong>Experienced Team:</strong> Handled under the leadership of Raju Bhai and Amarnath, boasting extensive, proven hands-on field experience.</li>
-                <li><strong>Quotation-Based Pricing:</strong> We evaluate the scope and provide detailed pricing frameworks upfront to completely protect you from unexpected hidden fees.</li>
-                <li><strong>Quality Workmanship:</strong> We utilize robust materials and fittings to guarantee that you do not encounter recurring maintenance stress.</li>
-            </ul>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us today for any minor repairs or heavy building infrastructure maintenance. We ensure quick response times and highly structured project quotations.</p>
-            
-            <ul class="contact-list" style="margin: 15px 0;">
-                <li>
-                    <span>Raju Bhai</span>
-                    <a href="tel:+919322590643">9322590643</a>
-                </li>
-                <li>
-                    <span>Amarnath</span>
-                    <a href="tel:+919324240840">9324240840</a>
-
-Ajeet
-7303314073
-
-📍 Our Registered Address:
-508, Koyana Vasahat, Panch Bawdi, Goregaon East, Mumbai - 400063
-
-© 2026 SK Plumbing Works. All Rights Reserved.
-
-
-*Note: Right now, the main floating WhatsApp button points to Raju Bhai's number. Inside the lists, users can choose to message anyone specifically.*
-
-<FollowUp>
-Would you like me to guide you on how to **host this code online for free** (so clients can visit your link on their mobiles), or do you want to add a **Google Maps link** for your address next?
-</FollowUp>
-
-
+            <div class="row g-4">
+                <!-- Operation 1 -->
